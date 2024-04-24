@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4; /* Default background color */
+      background-image: url('Bl.jpg'); /* Default background image */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      text-align: center;
+      padding: 20px;
+      border-radius: 5px;
+      width: 300px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #loggedInMessage {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      border-radius: 5px;
+      width: 300px;
+      background-color: #4CAF50;
+      color: white;
+      margin-top: 20px;
+    }
+
+    /* Additional style for background after login */
+    body.logged-in {
+      background-color: #333; /* New background color */
+      background-image: none; /* Remove background image */
+    }
+  </style>
+</head>
+<body>
+     
+  <div class="container">
+    <div class="login-container" id="loginFormContainer">
+      <h2> Login</h2>
+      <form id="loginForm" onsubmit="submitForm(event)">
+        <div class="input-group">
+         <img src="Ml.jpg" height="200">
+          <label for="username"><marquee behavior="scroll" direction="right">Username</marquee></label>
+          <input type="text" id="username" placeholder="Enter your username" required aria-label="Username">
+        </div>
+        <div class="input-group">
+          <label for="password"><marquee behavior="scroll" direction="right">Password</marquee></label>
+          <input type="password" id="password" placeholder="Enter your password" required aria-label="Password">
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+ 
+            <div id="loggedInMessage">
+      <!-- Content to show after login -->
+      <h3>Welcome, <span id="loggedInUsername"></span>!</h3>
+      <p>You are now logged in.</p>
+
+  
+    </div>
+    </div>
+  </div>
+  
+  <script>
+    function submitForm(event) {
+      event.preventDefault();
+      let username = document.getElementById('username').value;
+      let password = document.getElementById('password').value;
+      // Perform login authentication here, e.g., using JavaScript, or send data to a server for authentication
+      // This part would typically be handled by server-side scripting
+      console.log('Username:', username, 'Password:', password);
+      
+      // Assuming successful login, show the message and hide the login form
+      document.getElementById('loggedInUsername').textContent = username;
+      document.getElementById('loginFormContainer').style.display = 'none';
+      document.getElementById('loggedInMessage').style.display = 'block';
+
+      // Change background image after login
+      document.body.style.backgroundImage = "url('path_to_your_new_background_image.jpg')";
+    }
+  </script>
+</body>
+</html>
+
